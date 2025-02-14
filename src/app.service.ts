@@ -32,6 +32,7 @@ export class AppService {
     return this.prisma.mahasiswa.findMany();
   }
 
+
   async getMahasiswByNim(nim: string) {
     const mahasiswa = await this.prisma.mahasiswa.findFirst({
       where: {
@@ -114,7 +115,10 @@ export class AppService {
         where: {
           id: user_id
         }
-      })
+      });
+
+      console.log('User found in auth service:', user);  
+
       if (user == null) throw new NotFoundException("User Tidak Ditemukan")
       return user
     } catch (err) {
@@ -133,12 +137,9 @@ export class AppService {
 
       if (user == null) throw new NotFoundException("User Tidak Ditemukan")
 
-      // Validasi username dan password
       if (!compareSync(data.password, user.password)) {
         throw new BadRequestException('Password Salah');
       }
-
-
       const payload = {
         id: user.id,
         username: user.username,

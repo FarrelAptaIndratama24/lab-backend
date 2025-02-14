@@ -13,6 +13,8 @@ model Mahasiswa {
   kelas String 
   jurusan String
   jenis_kelamin jenis_kelamin 
+  foto_profile  String?
+ 
 }
 
 enum jenis_kelamin {
@@ -21,11 +23,13 @@ enum jenis_kelamin {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  username String @unique
-  password String
-  role Role @default(USER)
+ id Int @id @default(autoincrement())
+ username String @unique
+ password String
+ role Role @default(USER)
+ foto_profile String? //tambahkan ini
 }
+
 enum Role {
   ADMIN
   USER
