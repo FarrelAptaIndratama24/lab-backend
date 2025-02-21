@@ -11,10 +11,6 @@ Berikut ini adalah struktur proyek **Lab-NestJS**:
 ├── 📂node_modules/
 ├── 📂prisma/
 │   ├── prisma.schema
-├── 📂public/
-│   ├── 🟨app.js
-│   ├── 🟧index.html
-│   ├── 🟦styles.css
 ├── 📂src/
 │   ├── 📂chat/
 │   |   |-- chat.gateaway.spec.ts
